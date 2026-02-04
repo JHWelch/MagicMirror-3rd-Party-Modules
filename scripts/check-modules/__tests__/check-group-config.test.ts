@@ -11,7 +11,7 @@ async function createTempProjectRoot() {
   return dir;
 }
 
-async function ensureConfigDir(root) {
+async function ensureConfigDir(root: string) {
   const dir = path.join(root, "scripts", "check-modules");
   await mkdir(dir, { recursive: true });
   return dir;
