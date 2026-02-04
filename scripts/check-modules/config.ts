@@ -1,6 +1,7 @@
 import path from "node:path";
 import process from "node:process";
 import { readFile } from "node:fs/promises";
+import { isErrorWithCode } from "../shared/types.ts";
 
 export type CheckGroupConfig = {
   groups: {
@@ -183,7 +184,7 @@ export async function loadCheckGroupConfig(
       sources.push({ ...candidate, applied: true });
     }
     catch (error: unknown) {
-      if (error && typeof error === 'object' && "code" in error && error.code === "ENOENT") {
+      if (isErrorWithCode(error) && error.code === "ENOENT" ) {
         sources.push({ ...candidate, applied: false, missing: true });
       }
       else {
