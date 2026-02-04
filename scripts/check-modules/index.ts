@@ -23,7 +23,7 @@ import {
   TEXT_RULES,
   getRuleById
 } from "./rule-registry.js";
-import { loadCheckGroupConfig } from "./config.js";
+import { loadCheckGroupConfig } from "./config.ts";
 import { buildRunSummaryMarkdown } from "./run-summary.js";
 import {
   MISSING_DEPENDENCY_RULE_ID,
